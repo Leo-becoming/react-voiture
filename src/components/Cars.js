@@ -1,25 +1,21 @@
 import React from "react";
+import Wrapper from "./Wrapper";
 
 const Car = ({children, color}) => {
-
-    const colorInfo = color ? (<p>Couleur: <b>{color}</b></p>) : ("")
 
 
     if (children) {
         return (
-            <div style={{backgroundColor: "pink", width: '550px', padding: '10px', margin: "5px auto"}}>
+            <Wrapper>
                 <p>Marque: <b>{children}</b></p>
-                {colorInfo}
-
-            </div>
+                <p>Couleur: {color ? color : "inconnue"}</p>
+            </Wrapper>
         )
     } else {
         return (
-            <div style={{backgroundColor: "red", width: '550px', padding: '10px', margin: "5px auto"}}>
+            <Wrapper color="red">
                 <p>Marque: <b> Inconnue </b></p>
-                {colorInfo}
-
-            </div>
+            </Wrapper>
         )
     }
 

@@ -1,17 +1,35 @@
 import React, {Component} from "react";
 import Car from "./Cars";
+import MyHeader from "./MyHeader";
 
 
-class Mycars extends Component {
+export class Mycars extends Component {
+
+
+    state = {
+        cars: ["Ford", "Mercedes", "Peugeot"]
+    }
+
     render() {
+
+
+        const {cars} = this.state
+        const {title, color} = this.props
+
+
         return (
             <div>
-                <h2>{this.props.title}</h2>
 
-                <Car color="red">Ford</Car>
-                <Car>Toyota</Car>
-                <Car color="green">BMW</Car>
-                <Car color="Black"></Car>
+
+                <MyHeader color={color}>{title}</MyHeader>
+
+                <Car color="red">{cars[0]}</Car>
+
+                <Car>{cars[1]}</Car>
+
+                <Car color="green">{cars[2]}</Car>
+
+                <Car></Car>
 
             </div>
         )
@@ -20,4 +38,4 @@ class Mycars extends Component {
 
 }
 
-export default Mycars;
+// export default Mycars;

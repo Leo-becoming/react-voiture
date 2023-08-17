@@ -1,5 +1,5 @@
 import React, {Component} from  'react';
-import Mycars from "./components/Mycars";
+import {Mycars} from "./components/Mycars";
 
 import "./App.css"
 
@@ -12,14 +12,17 @@ class App extends Component {
 
 
     state = {
-        titre : 'Mon catalogue voiture'
+        titre : 'Mon catalogue voiture',
+        color : "Green"
     }
 
     render(){
         return (
             <div className="App">
-                <h1>Cars</h1>
-                <Mycars title={this.state.titre} />
+                <Mycars
+                    title={this.state.titre}
+                    color={this.state.color}
+                />
 
             </div>
         );
