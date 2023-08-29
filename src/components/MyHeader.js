@@ -1,10 +1,14 @@
 import Wrapper from "./Wrapper";
 
 
-const MyHeader = ({children, color}) =>
+
+
+const MyHeader = ({children, color, addStyle}) =>
+
+
 
     <Wrapper>
-        <h1 style={{color: color}}>
+        <h1 onMouseOver={addStyle} style={{color: color}}>
             {children}
         </h1>
     </Wrapper>

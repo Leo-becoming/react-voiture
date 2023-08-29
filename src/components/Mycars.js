@@ -10,6 +10,25 @@ export class Mycars extends Component {
         cars: ["Ford", "Mercedes", "Peugeot"]
     }
 
+
+    noCopy = () => {
+        alert('Pas de copie')
+    }
+
+
+    addStyle = (e) => {
+
+        let elem = e.target.classList;
+
+        if (!elem.contains('hovered')){
+            elem.add('hovered')
+        }else{
+            elem.remove('hovered')
+        }
+
+    }
+
+
     render() {
 
 
@@ -21,7 +40,9 @@ export class Mycars extends Component {
             <div>
 
 
-                <MyHeader color={color}>{title}</MyHeader>
+                <MyHeader addStyle={this.addStyle} color={color}>{title}</MyHeader>
+
+                <p onCopy={this.noCopy}>Donec quam felis ultricies nec</p>
 
                 <Car color="red">{cars[0]}</Car>
 
