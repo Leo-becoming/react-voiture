@@ -7,7 +7,28 @@ export class Mycars extends Component {
 
 
     state = {
-        cars: ["Ford", "Mercedes", "Peugeot"]
+        cars: [
+            {
+                name: 'ford',
+                color: 'red',
+                year: 2000
+            },
+            {
+                name: 'Mercedes',
+                color: 'black',
+                year: 2023
+            },
+            {
+                name: 'Toyota',
+                color: 'blue',
+                year: 2010
+            },
+            {
+                name: 'Dacia',
+                color: 'green',
+            }
+        ],
+        title : "Catalogue voitures"
     }
 
 
@@ -17,40 +38,38 @@ export class Mycars extends Component {
 
 
     addStyle = (e) => {
-
         let elem = e.target.classList;
 
-        if (!elem.contains('hovered')){
+        if (!elem.contains('hovered')) {
             elem.add('hovered')
-        }else{
+        } else {
             elem.remove('hovered')
         }
-
     }
 
 
     render() {
 
 
-        const {cars} = this.state
-        const {title, color} = this.props
+        const {title, cars} = this.state
+        const {color} = this.props
 
 
         return (
             <div>
 
 
-                <MyHeader addStyle={this.addStyle} color={color}>{title}</MyHeader>
+                <MyHeader addStyle={this.addStyle} color={color}>{title} : {cars.length + " resultats"} </MyHeader>
 
                 <p onCopy={this.noCopy}>Donec quam felis ultricies nec</p>
 
-                <Car color="red">{cars[0]}</Car>
 
-                <Car>{cars[1]}</Car>
+                {cars.map((car, index) => (
+                    <Car name={car.name} key={index} color={car.color} year={car.year}/>
+                ))}
 
-                <Car color="green">{cars[2]}</Car>
 
-                <Car></Car>
+
 
             </div>
         )
