@@ -2,8 +2,6 @@ import React from 'react';
 
 function Wrapper(props) {
 
-console.log(props.color)
-
 
 
     const {children, color} = props

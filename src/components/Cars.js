@@ -2,9 +2,9 @@ import React from "react";
 import Wrapper from "./Wrapper";
 
 
-const currentYear =  new Date().getFullYear()
 
-const Car = ({name, color, year}) => {
+
+const Car = ({name, color, year, age}) => {
 
 
 
@@ -15,8 +15,13 @@ const Car = ({name, color, year}) => {
                 <p>Couleur: {color ? color : "inconnue"}</p>
                 <p>Année: {year ? year : "inconnue"}</p>
 
-                <p>Âge: {year ? (currentYear - year) + " " + ((currentYear - year) <= 1 ? "an" : "ans") : "inconnue"}</p>
-
+                <p>
+                    Âge:{" "}
+                    {year ? age >= 1
+                            ? age + (age === 1 ? " an" : " ans")
+                            : "-1 an"
+                        : "inconnue"}
+                </p>
             </Wrapper>
         )
     } else {

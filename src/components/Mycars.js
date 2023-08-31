@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Car from "./Cars";
 import MyHeader from "./MyHeader";
 
+const currentYear = new Date().getFullYear()
 
 export class Mycars extends Component {
 
@@ -17,6 +18,11 @@ export class Mycars extends Component {
                 name: 'Mercedes',
                 color: 'black',
                 year: 2023
+            },
+            {
+                name: 'BMW',
+                color: 'blue',
+                year: 2022
             },
             {
                 name: 'Toyota',
@@ -47,6 +53,9 @@ export class Mycars extends Component {
         }
     }
 
+    getAge = (year) =>{
+        return currentYear - year;
+    }
 
     render() {
 
@@ -64,8 +73,14 @@ export class Mycars extends Component {
                 <p onCopy={this.noCopy}>Donec quam felis ultricies nec</p>
 
 
-                {cars.map((car, index) => (
-                    <Car name={car.name} key={index} color={car.color} year={car.year}/>
+                {cars.map(({name, color, year}, index) => (
+                    <Car
+                        name={name}
+                        key={index}
+                        age ={() => this.getAge(year)}
+                        color={color}
+                        year={year}
+                    />
                 ))}
 
 
