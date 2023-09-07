@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Mycars} from "./components/Mycars";
 import Welcome from "./components/Welcome";
 import "./App.css"
+import "./assets/scss/app.scss"
 
 
 

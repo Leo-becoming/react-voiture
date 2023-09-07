@@ -1,8 +1,10 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import Car from "./Cars";
 import MyHeader from "./MyHeader";
 
 const currentYear = new Date().getFullYear()
+
+
 
 export class Mycars extends Component {
 
@@ -34,7 +36,7 @@ export class Mycars extends Component {
                 color: 'green',
             }
         ],
-        title : "Catalogue voitures"
+        title: "Catalogue voitures"
     }
 
 
@@ -53,8 +55,8 @@ export class Mycars extends Component {
         }
     }
 
-    getAge = (year) =>{
-        return currentYear - year;
+    getAge = (year) => {
+        return (currentYear - year);
     }
 
     render() {
@@ -65,7 +67,7 @@ export class Mycars extends Component {
 
 
         return (
-            <div>
+            <>
 
 
                 <MyHeader addStyle={this.addStyle} color={color}>{title} : {cars.length + " resultats"} </MyHeader>
@@ -73,20 +75,42 @@ export class Mycars extends Component {
                 <p onCopy={this.noCopy}>Donec quam felis ultricies nec</p>
 
 
+                <table>
+
+                <tbody>
+                <tr>
+                    <th>Marque</th>
+                    <th>Année</th>
+                    <th>couleur</th>
+                    <th>Age</th>
+                </tr>
+
+
                 {cars.map(({name, color, year}, index) => (
+
+                    /*  <tr>
+                          <td>{name}</td>
+                          <td>{year}</td>
+                          <td>{color}</td>
+                          <td>{() => this.getAge(year)}</td>
+                      </tr>*/
+
+
                     <Car
                         name={name}
                         key={index}
-                        age ={() => this.getAge(year)}
+                        age={this.getAge(year)}
                         color={color}
                         year={year}
                     />
+
                 ))}
 
+                </tbody>
+                </table>
 
 
-
-            </div>
+            </>
         )
     }
 

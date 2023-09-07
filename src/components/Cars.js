@@ -9,8 +9,9 @@ const Car = ({name, color, year, age}) => {
 
 
     if (name) {
+        console.log(age)
         return (
-            <Wrapper>
+          /*  <Wrapper>
                 <p>Marque: <b>{name}</b></p>
                 <p>Couleur: {color ? color : "inconnue"}</p>
                 <p>Année: {year ? year : "inconnue"}</p>
@@ -22,7 +23,23 @@ const Car = ({name, color, year, age}) => {
                             : "-1 an"
                         : "inconnue"}
                 </p>
-            </Wrapper>
+            </Wrapper>*/
+
+
+
+
+
+
+        <tr>
+
+            <td>{name}</td>
+            <td>{year ? year : "inconnue"}</td>
+            <td>{color ? color : "inconnue"}</td>
+            <td>{year ? age >= 1
+                    ? age + (age === 1 ? " an" : " ans")
+                    : "-1 an"
+                : "inconnue"}</td>
+        </tr>
         )
     } else {
         /* return (
